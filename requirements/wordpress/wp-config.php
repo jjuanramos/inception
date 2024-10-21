@@ -18,25 +18,18 @@
  * @package WordPress
  */
 
-$link = mysqli_connect(getenv('DB_HOST'), getenv('db1_user'), getenv('db1_pwd'), getenv('db1_name'));
-if (!$link) {
-    die('Could not connect: ' . mysqli_connect_error());
-}
-echo 'Connected successfully to the database';
-mysqli_close($link);
-
 // ** Database settings - You can get this info from your web host ** //
-/** The name of the  for WordPress */
+/** The name of the database for WordPress */
 define( 'DB_NAME', getenv('db1_name') );
 
 /** Database username */
-define( 'DB_USER', getenv('db1_user') );
+define( 'DB_USER', 'username_here' );
 
 /** Database password */
-define( 'DB_PASSWORD', getenv('db1_pwd') );
+define( 'DB_PASSWORD', 'password_here' );
 
 /** Database hostname */
-define( 'DB_HOST', 'mariadb' );
+define( 'DB_HOST', 'localhost' );
 
 /** Database charset to use in creating  tables. */
 define( 'DB_CHARSET', 'utf8' );

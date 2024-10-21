@@ -1,14 +1,14 @@
 all: clean build
-	@docker-compose up -d
+	@docker-compose up
 
 build:
 	@docker-compose build
 
 fbuild:
-	@ocker-compose build --no-cache
+	@docker-compose build --no-cache
 
 up:
-	@docker rmi $(shell docker images -f "dangling=true" -qa) && docker-compose up -d
+	@docker-compose up
 
 down:
 	@docker-compose down
@@ -18,9 +18,11 @@ logs:
 
 clean: down
 	@docker volume prune -f
+	@rm -rf mariadb/*
+	@rm -rf wordpress/*
 
 fclean:	clean
-	@docker image rm mariadb wordpress nginx
+	@docker image rm inception-mariadb inception-wordpress inception-nginx
 
 prune:
 	@docker system prune -af
