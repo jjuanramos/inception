@@ -1,18 +1,16 @@
-version: "3.x"
-
 volumes:
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /Users/juan/cursus/inception-parent/new-test/mariadb
+      device: /Users/juan/cursus/inception-parent/inception/mariadb
       o: bind
       type: none
   wordpress:
     name: wordpress
     driver: local
     driver_opts:
-      device: /Users/juan/cursus/inception-parent/new-test/wordpress
+      device: /Users/juan/cursus/inception-parent/inception/wordpress
       o: bind
       type: none
 
