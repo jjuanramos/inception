@@ -18,8 +18,6 @@ logs:
 
 clean: down
 	@docker volume prune -f
-	@rm -rf mariadb/*
-	@rm -rf wordpress/*
 
 fclean:	clean
 	@docker image rm inception-mariadb inception-wordpress inception-nginx
