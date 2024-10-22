@@ -29,13 +29,15 @@ define( 'DB_USER', 'username_here' );
 define( 'DB_PASSWORD', 'password_here' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'mariadb' );
 
 /** Database charset to use in creating  tables. */
 define( 'DB_CHARSET', 'utf8' );
 
 /** The  collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+define( 'WP_ALLOW_REPAIR', true );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -79,7 +81,7 @@ $table_prefix = 'wp_';
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
