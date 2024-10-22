@@ -1,0 +1,12 @@
+
+
+services:
+  nginx:
+    build: srcs/nginx/.
+    container_name: nginx
+    ports:
+      - "80:80"
+  wordpress:
+    build: srcs/wordpress/.
+    container_name: wordpress
+    
