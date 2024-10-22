@@ -1,13 +1,13 @@
 volumes:
-  mariadb-v1:
-    name: mariadb-v1
+  mariadb:
+    name: mariadb
     driver: local
     driver_opts:
       device: /Users/juan/cursus/inception-parent/inception/v1/mariadb
       o: bind
       type: none
-  wordpress-v1:
-    name: wordpress-v1
+  wordpress:
+    name: wordpress
     driver: local
     driver_opts:
       device: /Users/juan/cursus/inception-parent/inception/v1/wordpress
@@ -23,7 +23,7 @@ services:
     container_name: mariadb
     build: requirements/mariadb/.
     volumes:
-      - mariadb-v1:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     networks:
       - inception
     env_file:
@@ -33,7 +33,7 @@ services:
     container_name: wordpress
     build: requirements/wordpress/.
     volumes:
-      - wordpress-v1:/var/www/html
+      - wordpress:/var/www/html
     networks:
       - inception
     env_file:
@@ -47,7 +47,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress-v1:/var/www/html
+      - wordpress:/var/www/html
     networks:
       - inception
     env_file:

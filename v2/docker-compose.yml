@@ -1,12 +1,12 @@
 
 
 services:
-  nginx:
+  nginx-v2:
     build: srcs/nginx/.
-    container_name: nginx
+    container_name: nginx-v2
     ports:
       - "80:80"
-  wordpress:
+  wordpress-v2:
     build: srcs/wordpress/.
-    container_name: wordpress
+    container_name: wordpress-v2
     
