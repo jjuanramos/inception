@@ -20,13 +20,13 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', getenv('db_name') );
 
 /** Database username */
-define( 'DB_USER', 'wpuser' );
+define( 'DB_USER', getenv('db_user') );
 
 /** Database password */
-define( 'DB_PASSWORD', 'password' );
+define( 'DB_PASSWORD', getenv('db_pwd') );
 
 /** Database hostname */
 define( 'DB_HOST', 'mariadb' );
