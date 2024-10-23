@@ -20,14 +20,21 @@ clean: down
 	@docker volume prune -f
 
 fclean:	clean
-	@docker image rm inception-mariadb inception-wordpress inception-nginx
+	@docker image rm v2-mariadb v2-wordpress v2-nginx
 
 prune:
 	@docker system prune -af
+
+bomb: fclean
+	@docker volume rm mariadb-v2 wordpress-v2
+	@rm -rf wordpress/*
+	@rm -rf mariadb/*
 
 space:
 	@docker system df
 
 re: fclean build
+
+rebomb: bomb all
 
 .PHONY:	all build up down logs clean fclean re space
