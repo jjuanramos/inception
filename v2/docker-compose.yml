@@ -16,7 +16,7 @@ volumes:
 
 networks:
   inception:
-    name: inception
+    driver: bridge
 
 services:
   nginx:
@@ -39,6 +39,8 @@ services:
     restart: always
     networks:
       - inception
+    depends_on:
+      - mariadb
   mariadb:
     build: srcs/mariadb/.
     container_name: mariadb-v2
