@@ -37,4 +37,4 @@ re: fclean build
 
 rebomb: bomb all
 
-.PHONY:	all build up down logs clean fclean re space
+.PHONY:	all build fbuild up down logs clean fclean re space bomb rebomb prune
