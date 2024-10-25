@@ -13,11 +13,11 @@ else
         --dbpass=${db_pwd} \
 		--dbhost=mariadb --allow-root
 	./wp-cli.phar core install \
-		--url=localhost \
+		--url=${domain_name}/ \
 		--title=inception \
-		--admin_user=${wp_user} \
-		--admin_password=${wp_pwd} \
-		--admin_email=${wp_email} --allow-root
+		--admin_user=${db_user} \
+		--admin_password=${db_pwd} \
+		--admin_email=${wp_email} --skip-email --allow-root
 fi
 
 /usr/sbin/php-fpm7.3 -F
