@@ -1,13 +1,13 @@
 volumes:
-  wordpress-v2:
-    name: wordpress-v2
+  wordpress:
+    name: wordpress
     driver: local
     driver_opts:
       device: /Users/juan/cursus/inception-parent/inception/wordpress
       o: bind
       type: none
-  mariadb-v2:
-    name: mariadb-v2
+  mariadb:
+    name: mariadb
     driver: local
     driver_opts:
       device: /Users/juan/cursus/inception-parent/inception/mariadb
@@ -21,13 +21,13 @@ networks:
 services:
   nginx:
     build: srcs/nginx/.
-    container_name: nginx-v2
+    container_name: nginx
     ports:
       - "443:443"
     depends_on:
       - wordpress
     volumes:
-      - wordpress-v2:/var/www/html
+      - wordpress:/var/www/html
     restart: always
     networks:
       - inception
@@ -35,9 +35,9 @@ services:
       - .env
   wordpress:
     build: srcs/wordpress/.
-    container_name: wordpress-v2
+    container_name: wordpress
     volumes:
-      - wordpress-v2:/var/www/html
+      - wordpress:/var/www/html
     restart: always
     networks:
       - inception
@@ -47,9 +47,9 @@ services:
       - .env
   mariadb:
     build: srcs/mariadb/.
-    container_name: mariadb-v2
+    container_name: mariadb
     volumes:
-      - mariadb-v2:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     restart: always
     networks:
       - inception
