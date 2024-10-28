@@ -18,6 +18,4 @@ mysql -u root < db1.sql || echo "Failed to execute SQL script."
 
 mysqladmin -u root -p"$db_root_pwd" shutdown || echo "Failed to stop MySQL."
 
-# kill $(cat /var/run/mysqld/mysqld.pid) || echo "Failed to stop MySQL."
-
 exec mysqld_safe || echo "Failed to start mysqld."
