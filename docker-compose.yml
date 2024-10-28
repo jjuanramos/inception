@@ -3,14 +3,14 @@ volumes:
     name: wordpress-v2
     driver: local
     driver_opts:
-      device: /Users/juan/cursus/inception-parent/inception/v2/wordpress
+      device: /Users/juan/cursus/inception-parent/inception/wordpress
       o: bind
       type: none
   mariadb-v2:
     name: mariadb-v2
     driver: local
     driver_opts:
-      device: /Users/juan/cursus/inception-parent/inception/v2/mariadb
+      device: /Users/juan/cursus/inception-parent/inception/mariadb
       o: bind
       type: none
 
