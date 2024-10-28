@@ -10,7 +10,7 @@ echo "
 server {
     listen 443;
     listen [::]:443;
-    server_name $domain_name;
+    server_name $domain_name www.$domain_name;
     return 301 https://\$server_name\$request_uri;
 }
 " > /etc/nginx/sites-available/default
