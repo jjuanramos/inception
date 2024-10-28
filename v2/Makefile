@@ -2,6 +2,8 @@ all: clean build
 	@docker-compose up
 
 build:
+	@mkdir -p /Users/juan/cursus/inception-parent/inception/v2/wordpress
+	@mkdir -p /Users/juan/cursus/inception-parent/inception/v2/mariadb
 	@docker-compose build
 
 fbuild:

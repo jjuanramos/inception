@@ -8,13 +8,28 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ngi
 
 echo "
 server {
+    listen 443;
+    listen [::]:443;
+    server_name $domain_name;
+    return 301 https://\$server_name\$request_uri;
+}
+" > /etc/nginx/sites-available/default
+
+
+echo "
+server {
     listen 443 ssl;
     listen [::]:443 ssl;
 
     server_name $domain_name;
 
     ssl_certificate $certs;
-    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" > /etc/nginx/sites-available/default
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+    
+    # Add these SSL parameters
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:50m;
+    ssl_session_tickets off;" > /etc/nginx/sites-available/default
 
 
 echo '
