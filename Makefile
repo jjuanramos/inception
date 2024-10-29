@@ -1,22 +1,22 @@
 all: clean build
-	@docker-compose up
+	@docker compose up
 
 build:
-	@mkdir -p /Users/juan/cursus/inception-parent/inception/wordpress
-	@mkdir -p /Users/juan/cursus/inception-parent/inception/mariadb
-	@docker-compose build
+	@mkdir -p ./wordpress
+	@mkdir -p ./mariadb
+	@docker compose build
 
 fbuild:
-	@docker-compose build --no-cache
+	@docker compose build --no-cache
 
 up:
-	@docker-compose up
+	@docker compose up
 
 down:
-	@docker-compose down
+	@docker compose down
 
 logs:
-	@docker-compose logs -f
+	@docker compose logs -f
 
 clean: down
 	@docker volume prune -f
