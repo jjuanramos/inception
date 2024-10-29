@@ -4,9 +4,12 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
     mysql_install_db --user=mysql --datadir=/var/lib/mysql
 fi
 
-mysqld_safe --skip-networking &
+mysqld_safe &
 
-sleep 5
+until mysqladmin ping --silent; do
+	echo "Waiting for MySQL to be ready..."
+	sleep 2
+done
 
 echo "CREATE DATABASE IF NOT EXISTS $db_name;" >> db1.sql
 echo "CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_pwd';" >> db1.sql
