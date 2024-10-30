@@ -1,36 +1,36 @@
 all: clean build
-	@docker compose up -d
+	@cd srcs/ && docker compose up -d
 
 build:
-	@mkdir -p ./wordpress
-	@mkdir -p ./mariadb
-	@docker compose build
+	@mkdir -p srcs/wordpress
+	@mkdir -p srcs/mariadb
+	@cd srcs/ && docker compose build
 
 fbuild:
-	@docker compose build --no-cache
+	@cd srcs/ && docker compose build --no-cache
 
 up:
-	@docker compose up -d
+	@cd srcs/ && docker compose up -d
 
 down:
-	@docker compose down
+	@cd srcs/ && docker compose down
 
 logs:
-	@docker compose logs -f
+	@cd srcs/ && docker compose logs -f
 
 clean: down
-	@docker volume prune -f
+	@cd srcs/ && docker volume prune -f
 
 fclean:	clean
-	@docker image rm inception-mariadb inception-wordpress inception-nginx
+	@docker image rm srcs-mariadb srcs-wordpress srcs-nginx
 
 prune:
 	@docker system prune -af
 
 bomb: fclean
 	@docker volume rm mariadb wordpress
-	@rm -rf wordpress/*
-	@rm -rf mariadb/*
+	@rm -rf srcs/wordpress/*
+	@rm -rf srcs/mariadb/*
 
 space:
 	@docker system df

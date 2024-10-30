@@ -2,7 +2,7 @@ FROM debian:buster
 
 RUN apt update -y && apt install -y nginx openssl
 
-COPY script.sh .
+COPY tools/script.sh .
 
 RUN chmod +x script.sh && mkdir -p /run/nginx
 

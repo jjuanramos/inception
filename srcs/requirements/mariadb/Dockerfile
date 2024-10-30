@@ -2,8 +2,8 @@ FROM debian:buster
 
 RUN apt update -y && apt install -y mariadb-server procps
 
-COPY 50-server.cnf /etc/mysql/mariadb.conf.d/.
-COPY script.sh .
+COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/.
+COPY tools/script.sh .
 
 RUN mkdir /run/mysqld \
 	&& chown -R mysql:mysql /run/mysqld /var/lib/mysql \
