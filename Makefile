@@ -1,5 +1,5 @@
 all: clean build
-	@docker compose up
+	@docker compose up -d
 
 build:
 	@mkdir -p ./wordpress
@@ -10,7 +10,7 @@ fbuild:
 	@docker compose build --no-cache
 
 up:
-	@docker compose up
+	@docker compose up -d
 
 down:
 	@docker compose down
