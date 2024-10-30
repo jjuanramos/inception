@@ -1,2 +1,3 @@
 /mariadb
 /wordpress
+.env
