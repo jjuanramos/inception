@@ -3,7 +3,10 @@
 
 
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out $certs -subj "/C=ES/L=MA/O=42/OU=student/CN=$domain_name"
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+	-keyout /etc/ssl/private/nginx-selfsigned.key \
+	-out /etc/ssl/certs/nginx-selfsigned.crt \
+	-subj "/C=ES/L=MA/O=42/OU=student/CN=$domain_name"
 
 
 echo "
@@ -23,7 +26,7 @@ server {
 
     server_name $domain_name;
 
-    ssl_certificate $certs;
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
     ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
     
     # Add these SSL parameters
